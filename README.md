@@ -9,7 +9,7 @@ The main goal of the library is to hide the whole complex toast notification mec
 
 The user must just supply the XML template for the toast in a memory string.
 
-To speed-up compilation, and allow usage also un compilers that doesn't have windows runtime headers avalable, a condensated header is included will all required windows.runtime definitions. Also the runtime libraries, 32 and 64 bits versions, are supplied.
+To speed-up compilation, and allow usage also on compilers that doesn't have windows runtime headers avalable, a condensated header is included will all required windows.runtime definitions. Also the runtime libraries, 32 and 64 bits versions, are supplied.
 
 The whole project is made available for **PellesC** compiler and **Visual Studio**, but it shouldn't be difficult to manage under other compilers.
 

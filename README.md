@@ -13,4 +13,4 @@ To speed-up compilation, and allow usage also on compilers that doesn't have win
 
 The whole project is made available for **PellesC** compiler and **Visual Studio**, but it shouldn't be difficult to manage it under other compilers.
 
-While you're free to use this software it would be nice to know that you found it useful, and, eventually, where you used. Let mi know commenting on PellesC site https://forum.PellesC.de.
+While you're free to use this software it would be nice to know that you found it useful, and, eventually, where you used it. Let me know commenting on PellesC site https://forum.PellesC.de.

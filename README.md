@@ -7,7 +7,7 @@ This library is based on concepts derived from former work of Valentin-Gabriel R
 
 The main goal of the library is to hide the whole complex toast notification mechanisms inside library and making available to the user a couple of handles and few functions to register/unregister callback function and to create and destroy a notification manager.
 
-The user must just supply the XML template for the toast in a memory string.
+The user must just supply the XAML template for the toast in a memory string.
 
 To speed-up compilation, and allow usage also on compilers that doesn't have windows runtime headers avalable, a condensated header is included will all required windows.runtime definitions. Also the runtime libraries, 32 and 64 bits versions, are supplied.
 

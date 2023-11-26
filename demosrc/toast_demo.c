@@ -9,9 +9,11 @@
  \date		Modified on Sun Nov 19 23:54:05 2023
  \author	frankie
 \*//*-@@file@@----------------------------------------------------------------*/
+#ifdef __POCC__
 #define  UNICODE
 #define _UNICODE
 #define __STDC_WANT_LIB_EXT1__ 1
+#endif
 
 #include <guiddef.h>
 #include <Windows.h>

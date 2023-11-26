@@ -10,9 +10,11 @@
  \date		Modified on Sun Nov 19 23:55:14 2023
  \author	frankie
 \*//*-@@file@@----------------------------------------------------------------*/
+#ifdef __POCC__
 #define  UNICODE
 #define _UNICODE
 #define __STDC_WANT_LIB_EXT1__ 1
+#endif
 
 #include <initguid.h>
 #include <Windows.h>

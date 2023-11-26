@@ -30,7 +30,11 @@
 #pragma comment(lib, "WRlibs/x32/runtimeobject.lib")
 #pragma comment(lib, "bin/x32/ToastLib.lib")
 #endif
+#else
+#pragma comment(lib, "runtimeobject.lib")
+#pragma comment(lib, "ToastLib.lib")
 #endif
+#pragma comment(lib, "ComCtl32.lib")
 
 #define NELEMS(a)  (sizeof(a) / sizeof((a)[0]))
 
@@ -61,8 +65,6 @@ const wchar_t wszToastXaml[] =
 		L"<toast scenario=\"reminder\" activationType=\"foreground\" launch=\"action=mainContent\">\r\n"
 		L"	<visual>\r\n"
 		L"		<binding template=\"ToastGeneric\">\r\n"
-		//L"			<image src=\"D:\\PellesC_Dev\\PROGRAMMING\\CONTROLS\\ToastLib\\resource\\SurprisedCat.jpg\" placement=\"appLogoOverride\" hint-crop=\"circle\"/>\r\n"
-		//L"			<image src=\"D:\\PellesC_Dev\\PROGRAMMING\\CONTROLS\\ToastLib\\resource\\SurprisedDogs.jpg\"/>\r\n"
 		L"			<image src=\"%lsSurprisedCat.jpg\" placement=\"appLogoOverride\" hint-crop=\"circle\"/>\r\n"
 		L"			<image src=\"%lsSurprisedDogs.jpg\"/>\r\n"
 		L"			<text>Sample Toast Notification</text>\r\n"
@@ -308,8 +310,16 @@ static INT_PTR CALLBACK MainDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPAR
 					*p = L'\0';
 					wcscpy(p, L"\\resource\\");
 					WCHAR *wszTemplate = NULL;
-					if (aswprintf(&wszTemplate, wszToastXaml, wszPath, wszPath) > 0)
+					int sSize;
+#ifdef __POCC__
+					sSize = aswprintf(&wszTemplate, wszToastXaml, wszPath, wszPath);
+#else
+					sSize = _scwprintf(wszToastXaml, wszPath, wszPath);
+#endif
+					if (sSize > 0)
 					{
+						wszTemplate = malloc((sSize + 1) * sizeof(WCHAR));
+						swprintf(wszTemplate, sSize+1, wszToastXaml, wszPath, wszPath);
 						BOOL res = fToastSendNotification(hToast, wszTemplate);
 						free(wszTemplate);
 						if (res)
